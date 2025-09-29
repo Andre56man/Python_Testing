@@ -9,6 +9,16 @@
             "name": "Fall Classic",
             "date": "2020-10-22 13:30:00",
             "numberOfPlaces": "13"
+        },
+        {
+            "name": "paralympic games",
+            "date": "2025-11-08 10:00:00",
+            "numberOfPlaces": "20"
+        },
+        {
+            "name": "Jeux Olympiques",
+            "date": "2025-10-21 10:00:00",
+            "numberOfPlaces": "10"
         }
     ]
 }
