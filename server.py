@@ -6,6 +6,7 @@ def loadClubs():
     with open('clubs.json') as c:
          listOfClubs = json.load(c)['clubs']
          return listOfClubs
+    
 
 
 def loadCompetitions():
@@ -17,6 +18,7 @@ def loadCompetitions():
 app = Flask(__name__)
 app.secret_key = 'something_special'
 
+
 competitions = loadCompetitions()
 clubs = loadClubs()
 
@@ -24,22 +26,36 @@ clubs = loadClubs()
 def index():
     return render_template('index.html')
 
-@app.route('/showSummary',methods=['POST'])
+from datetime import datetime
+
+@app.route('/showSummary', methods=['POST'])
 def showSummary():
     club = [club for club in clubs if club['email'] == request.form['email']][0]
-    return render_template('welcome.html',club=club,competitions=competitions)
+
+    # Ajout de l'indicateur "is_past" pour chaque compétition
+    for comp in competitions:
+        comp_date = datetime.strptime(comp['date'], "%Y-%m-%d %H:%M:%S")  # adapte le format si besoin
+        comp['is_past'] = comp_date < datetime.now()
+
+    return render_template('welcome.html', club=club, competitions=competitions)
 
 
 @app.route('/book/<competition>/<club>')
 def book(competition,club):
     foundClub = [c for c in clubs if c['name'] == club][0]
+
     foundCompetition = [c for c in competitions if c['name'] == competition][0]
+
     if foundClub and foundCompetition:
         return render_template('booking.html',club=foundClub,competition=foundCompetition)
+    
     else:
         flash("Something went wrong-please try again")
         return render_template('welcome.html', club=club, competitions=competitions)
+    
 
+
+from datetime import datetime
 
 @app.route('/purchasePlaces', methods=['POST'])
 def purchasePlaces():
@@ -48,21 +64,28 @@ def purchasePlaces():
 
     placesRequired = int(request.form['places'])
 
-    # Vérifie si le club a assez de points
     if int(club['points']) < placesRequired:
-        flash("❌ You don't have enough points to book these places.")
+        flash(" You don't have enough points to book these places.")
         return render_template('welcome.html', club=club, competitions=competitions)
 
-    # Vérifie si la compétition a assez de places
     if int(competition['numberOfPlaces']) < placesRequired:
-        flash("❌ Not enough places available in this competition.")
+        flash(" Not enough places available in this competition.")
         return render_template('welcome.html', club=club, competitions=competitions)
 
-    # Mise à jour si tout est valide
+    if placesRequired > 12:
+        flash(" You cannot book more than 12 places per competition.")
+        return render_template('welcome.html', club=club, competitions=competitions)    
+
+    # Vérification de la date
+    competition_date = datetime.strptime(competition['date'], "%Y-%m-%d %H:%M:%S")  
+    if competition_date < datetime.now():
+        flash(" You cannot book places for past competitions.")
+        return render_template('welcome.html', club=club, competitions=competitions)
+
     competition['numberOfPlaces'] = int(competition['numberOfPlaces']) - placesRequired
     club['points'] = int(club['points']) - placesRequired
 
-    flash(f"✅ Booking complete! You booked {placesRequired} place(s).")
+    flash(f"Booking complete! You booked {placesRequired} place(s).")
     return render_template('welcome.html', club=club, competitions=competitions)
 
 

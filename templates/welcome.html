@@ -3,40 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary | GUDLFT Registration</title>
-    <style>
-    :root{
-        --bg-1:#f6f9ff;
-        --bg-2:#e8f0ff;
-        --card:#fff;
-        --accent:#2b7cff;
-        --muted:#6b7280;
-        --danger:#ef4444;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:"Segoe UI",Roboto,Arial,Helvetica Neue,sans-serif;background:linear-gradient(135deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#0f172a}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
-    .container{width:100%;max-width:880px;background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(16,24,40,0.06);padding:1.5rem 2rem;border:1px solid rgba(43,124,255,0.06)}
-    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-    h2{margin:0;font-size:1.25rem}
-    a.logout{color:#fff;background:linear-gradient(90deg,var(--accent),#1e63e6);padding:0.45rem 0.7rem;border-radius:8px;text-decoration:none;font-size:0.9rem;box-shadow:0 6px 18px rgba(43,124,255,0.12)}
-    .lead{color:var(--muted);margin:0 0 1rem 0}
-    .flash-list{margin:0 0 1rem 0;padding:0;list-style:none}
-    .flash-list li{background:#fff3f2;border-left:4px solid var(--danger);padding:0.5rem 0.75rem;margin-bottom:0.5rem;border-radius:6px;color:var(--danger);font-size:0.95rem}
-    .summary{display:grid;grid-template-columns:1fr 320px;gap:1rem}
-    .left{min-width:0}
-    .card{background:linear-gradient(180deg, #ffffff, #fbfdff);border-radius:10px;padding:1rem;border:1px solid rgba(15,23,42,0.04)}
-    .points{font-weight:600;color:#0b1220;margin-bottom:0.5rem}
-    .competitions{margin-top:0.5rem;padding:0;list-style:none}
-    .competition{padding:0.75rem;border-radius:8px;border:1px solid rgba(15,23,42,0.04);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.75rem;background:#fff}
-    .competition .meta{flex:1;min-width:0}
-    .competition h4{margin:0 0 0.35rem 0;font-size:1rem}
-    .competition p{margin:0;color:var(--muted);font-size:0.9rem}
-    .competition .actions{display:flex;flex-direction:column;gap:0.5rem;align-items:flex-end}
-    .btn{display:inline-block;padding:0.45rem 0.7rem;border-radius:8px;text-decoration:none;color:#fff;background:var(--accent)}
-    .btn.secondary{background:#6b7280}
-    hr{border:none;border-top:1px dashed rgba(15,23,42,0.04);margin:0.6rem 0}
-    @media(max-width:820px){.summary{grid-template-columns:1fr}.competition{align-items:center}.actions{align-items:flex-start}}
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleswel.css') }}">
+    
 </head>
 <body>
     <div class="wrap">
@@ -61,27 +29,37 @@
                     <div class="card">
                         <div class="points">Points available: {{ club['points'] }}</div>
                         <h3 style="margin-top:0.5rem;margin-bottom:0.5rem">Competitions</h3>
-                        <ul class="competitions">
-                            {% for comp in competitions %}
-                            <li class="competition">
-                                <div class="meta">
-                                    <h4>{{ comp['name'] }}</h4>
-                                    <p>Date: {{ comp['date'] }} • Places: {{ comp['numberOfPlaces'] }}</p>
-                                </div>
-                                <div class="actions">
-                                    {% if comp['numberOfPlaces']|int > 0 and club['points']|int > 0 %}
-                                        <a class="btn" href="{{ url_for('book', competition=comp['name'], club=club['name']) }}">Book Places</a>
-                                    {% elif comp['numberOfPlaces']|int <= 0 %}
-                                        <span class="btn secondary" style="opacity:0.7;pointer-events:none">Sold out</span>
-                                    {% else %}
-                                        <span class="btn secondary" style="opacity:0.7;pointer-events:none">Not enough points</span>
-                                    {% endif %}
-                                </div>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+                       <ul class="competitions">
+    {% for comp in competitions %}
+    <li class="competition">
+        <div class="meta">
+            <h4>{{ comp['name'] }}</h4>
+            <p>Date: {{ comp['date'] }} • Places: {{ comp['numberOfPlaces'] }}</p>
+        </div>
+        <div class="actions">
+            {% if comp['is_past'] %}
+                <span class="btn secondary" style="opacity:0.7;pointer-events:none">
+                    Compétition terminée
+                </span>
+            {% elif comp['numberOfPlaces']|int > 0 and club['points']|int > 0 %}
+                <a class="btn" href="{{ url_for('book', competition=comp['name'], club=club['name']) }}">
+                    Réserver (Disponible)
+                </a>
+            {% elif comp['numberOfPlaces']|int <= 0 %}
+                <span class="btn secondary" style="opacity:0.7;pointer-events:none">
+                    Complet
+                </span>
+            {% else %}
+                <span class="btn secondary" style="opacity:0.7;pointer-events:none">
+                    Pas assez de points
+                </span>
+            {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+
 
             </div>
         </div>
