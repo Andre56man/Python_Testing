@@ -69,10 +69,12 @@
                                     <p>Date: {{ comp['date'] }} • Places: {{ comp['numberOfPlaces'] }}</p>
                                 </div>
                                 <div class="actions">
-                                    {% if comp['numberOfPlaces']|int  > 0 %}
-                                    <a class="btn" href="{{ url_for('book', competition=comp['name'], club=club['name']) }}">Book Places</a>
+                                    {% if comp['numberOfPlaces']|int > 0 and club['points']|int > 0 %}
+                                        <a class="btn" href="{{ url_for('book', competition=comp['name'], club=club['name']) }}">Book Places</a>
+                                    {% elif comp['numberOfPlaces']|int <= 0 %}
+                                        <span class="btn secondary" style="opacity:0.7;pointer-events:none">Sold out</span>
                                     {% else %}
-                                    <span class="btn secondary" style="opacity:0.7;pointer-events:none">Sold out</span>
+                                        <span class="btn secondary" style="opacity:0.7;pointer-events:none">Not enough points</span>
                                     {% endif %}
                                 </div>
                             </li>
