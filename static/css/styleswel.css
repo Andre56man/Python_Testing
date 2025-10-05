@@ -167,6 +167,6 @@ header h2 {
         font-size: 2rem;
     }
     .competitions {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2fr;
     }
 }

@@ -13,7 +13,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr; /* une seule colonne par défaut */
-    gap: 1rem; /* espacement entre les éléments */
+    gap: 1.2rem; /* espacement entre les éléments */
 
     max-width: 500px;
     width: 100%;

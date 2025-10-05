@@ -66,7 +66,7 @@ def showSummary():
 @app.route('/book/<competition>/<club>')
 def book(competition, club):
     """
-    Page de réservation d'une compétition pour un club
+    Pages de réservation d'une compétition pour un club
     """
     foundClub = [c for c in clubs if c['name'] == club][0]
     foundCompetition = [c for c in competitions if c['name'] == competition][0]

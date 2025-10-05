@@ -95,7 +95,7 @@
 
     button[type="submit"]:hover {
         transform: translateY(-2px);
-        opacity: 0.98;
+        opacity: 0.88;
     }
 
     @media (max-width: 420px) {

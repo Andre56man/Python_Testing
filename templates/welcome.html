@@ -72,7 +72,7 @@
                                 <span class="btn disabled">Terminée</span>
                             {% elif comp['numberOfPlaces']|int > 0 and club['points']|int > 0 %}
                                 <a class="btn" href="{{ url_for('book', competition=comp['name'], club=club['name']) }}">
-                                    Réserver
+                                    Réservers
                                 </a>
                             {% elif comp['numberOfPlaces']|int <= 0 %}
                                 <span class="btn disabled">Complet</span>
