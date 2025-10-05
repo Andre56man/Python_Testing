@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | GUDLFT Registration</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styleswel.css') }}">
+    <title>Bienvenue | GUDLFT Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleswel.css') }}">
+    <style>
+        /* Tableau dashboard */
+        .dashboard-table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .dashboard-table th, .dashboard-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .dashboard-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .dashboard-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        h3.title-dashboard {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <div class="wrap">
@@ -24,12 +50,14 @@
             {% endif %}
             {% endwith %}
 
+            <!-- Carte des points du club -->
             <section class="summary">
                 <div class="points-card">
                     <h3>🎯 Points disponibles</h3>
                     <div class="points">{{ club['points'] }}</div>
                 </div>
 
+                <!-- Compétitions disponibles -->
                 <h3 class="title">🏆 Compétitions disponibles</h3>
                 <ul class="competitions">
                     {% for comp in competitions %}
@@ -55,6 +83,8 @@
                     </li>
                     {% endfor %}
                 </ul>
+
+                
             </section>
         </div>
     </div>

@@ -66,7 +66,7 @@ input[type="number"]:focus {
 }
 
 .btn:hover {
-    background: linear-gradient(90deg, #2980b9, #3498db);
+    background: linear-gradient(90deg, #6cdf5a, #57de48);
     transform: translateY(-2px);
 }
 

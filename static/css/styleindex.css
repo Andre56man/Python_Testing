@@ -2,7 +2,7 @@
         --bg-color-1: #f6f9ff;
         --bg-color-2: #e8f0ff;
         --card-bg: #ffffff;
-        --accent: #2b7cff;
+        --accent: #73f057;
         --muted: #6b7280;
     }
 
@@ -82,7 +82,7 @@
     }
 
     button[type="submit"] {
-        background: linear-gradient(90deg, var(--accent), #1e63e6);
+        background: linear-gradient(90deg, var(--accent), #2ff453);
         color: #fff;
         border: none;
         padding: 0.6rem 1rem;

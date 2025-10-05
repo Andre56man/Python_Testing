@@ -1,20 +1,39 @@
-{"clubs":[
+{
+  "clubs": [
     {
-        "name":"Simply Lift",
-        "email":"john@simplylift.co",
-        "points":"13"
+      "name": "Simply Lift",
+      "email": "john@simplylift.co",
+      "points": "13"
     },
     {
-        "name":"Iron Temple",
-        "email": "admin@irontemple.com",
-        "points":"4"
+      "name": "Iron Temple",
+      "email": "admin@irontemple.com",
+      "points": "4"
     },
-    {   "name":"She Lifts",
-        "email": "kate@shelifts.co.uk",
-        "points":"12"
+    {
+      "name": "She Lifts",
+      "email": "kate@shelifts.co.uk",
+      "points": "12"
     },
-    {   "name":"kodjo",
-        "email": "kodjoandre56@gmail.com",
-        "points":"20"
+    {
+      "name": "kodjo",
+      "email": "kodjoandre56@gmail.com",
+      "points": "20"
+    },
+    {
+      "name": "Power House",
+      "email": "power@housegym.com",
+      "points": "15"
+    },
+    {
+      "name": "Fit Nation",
+      "email": "contact@fitnation.com",
+      "points": "8"
+    },
+    {
+      "name": "Muscle Factory",
+      "email": "info@musclefactory.com",
+      "points": "10"
     }
-]}
+  ]
+}

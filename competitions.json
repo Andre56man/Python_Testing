@@ -18,22 +18,22 @@
         {
             "name": "Coupe du Monde de Rugby",
             "date": "2023-09-08 20:00:00",
-            "numberOfPlaces": "60"
+            "numberOfPlaces": "52"
         },
         {
             "name": "Tournoi des Échecs",
             "date": "2024-02-14 09:00:00",
-            "numberOfPlaces": "30"
+            "numberOfPlaces": "32"
         },
         {
             "name": "Festival de Cannes",
             "date": "2024-05-14 18:00:00",
-            "numberOfPlaces": "100"
+            "numberOfPlaces": "34"
         },
         {
             "name": "Conférence IA",
             "date": "2024-09-18 09:30:00",
-            "numberOfPlaces": "200"
+            "numberOfPlaces": "20"
         },
         {
             "name": "paralympic games",
@@ -43,22 +43,22 @@
         {
             "name": "Jeux Olympiques",
             "date": "2025-10-21 10:00:00",
-            "numberOfPlaces": "10"
+            "numberOfPlaces": "100"
         },
         {
             "name": "Hackathon Global",
             "date": "2025-09-29 08:00:00",
-            "numberOfPlaces": "150"
+            "numberOfPlaces": "15"
         },
         {
             "name": "Festival de la Musique",
             "date": "2025-06-21 15:00:00",
-            "numberOfPlaces": "500"
+            "numberOfPlaces": "120"
         },
         {
             "name": "Salon du Livre",
             "date": "2025-04-05 09:00:00",
-            "numberOfPlaces": "120"
+            "numberOfPlaces": "101"
         },
         {
             "name": "Marathon de New York",
@@ -68,37 +68,37 @@
         {
             "name": "Exposition Universelle",
             "date": "2027-05-01 10:00:00",
-            "numberOfPlaces": "1000"
+            "numberOfPlaces": "18"
         },
         {
             "name": "Concert Coldplay",
             "date": "2025-12-12 20:30:00",
-            "numberOfPlaces": "300"
+            "numberOfPlaces": "31"
         },
         {
             "name": "Tournoi Tennis Roland Garros",
             "date": "2026-06-01 11:00:00",
-            "numberOfPlaces": "80"
+            "numberOfPlaces": "21"
         },
         {
             "name": "Mondial de Handball",
             "date": "2027-01-13 18:00:00",
-            "numberOfPlaces": "70"
+            "numberOfPlaces": "10"
         },
         {
             "name": "Festival du Cinéma Africain",
             "date": "2025-10-05 19:00:00",
-            "numberOfPlaces": "250"
+            "numberOfPlaces": "20"
         },
         {
             "name": "Foire Internationale d’Abidjan",
             "date": "2025-11-15 09:00:00",
-            "numberOfPlaces": "400"
+            "numberOfPlaces": "40"
         },
         {
             "name": "Concert de Noël",
             "date": "2025-12-24 21:00:00",
-            "numberOfPlaces": "180"
+            "numberOfPlaces": "18"
         }
     ]
 }
