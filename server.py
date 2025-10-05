@@ -2,12 +2,16 @@ import json
 from flask import Flask, render_template, request, redirect, flash, url_for
 from datetime import datetime
 
+
 # ------------------------
 # Fonctions pour charger les données
 # ------------------------
 def loadClubs():
     with open('clubs.json') as c:
         return json.load(c)['clubs']
+    
+
+
 
 def loadCompetitions():
     with open('competitions.json') as comps:
@@ -45,7 +49,12 @@ def showSummary():
     """
     Affiche le résumé après connexion d'un club
     """
-    club = [c for c in clubs if c['email'] == request.form['email']][0]
+    email = request.form.get('email')
+    club = next((c for c in clubs if c['email'] == email), None)  # recherche sécurisée
+
+    if not club:
+        # On reste sur la page index et on affiche le message
+        return render_template('index.html', clubs=clubs, error_message="Email not found.")
 
     # Ajouter un flag pour indiquer si la compétition est passée
     for comp in competitions:

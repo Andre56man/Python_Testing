@@ -9,10 +9,15 @@
 </head>
 <body>
     <div class="container">
+        
         <h1>Welcome to the GUDLFT Registration Portal!</h1>
         <p class="lead">Please enter your secretary email to continue:</p>
         <form action="showSummary" method="post">
-            <label for="email">Email:</label>
+            <label for="email">Email:
+                {% if error_message %}
+    <div style="color:red;">{{ error_message }}</div>
+{% endif %}
+            </label>
             <input type="email" name="email" id="email" required />
             <div class="button-row">
                 <button type="submit">Enter</button>
