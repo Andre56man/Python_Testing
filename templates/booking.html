@@ -3,18 +3,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking for {{competition['name']}} || GUDLFT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h2>{{competition['name']}}</h2>
-    Places available: {{competition['numberOfPlaces']}}<br>
-    Club: {{club['name']}}<br>
-    Points available: {{club['points']}}<br><br>
-    <h3>Book Places</h3>
-    <form action="/purchasePlaces" method="post">
-        <input type="hidden" name="club" value="{{club['name']}}">
-        <input type="hidden" name="competition" value="{{competition['name']}}">
-        <label for="places">How many places?</label><input type="number" name="places" id="email"/>
-        <button type="submit">Book</button>
-    </form>
+    <div class="container">
+        <h2>{{competition['name']}}</h2>
+        <p>Places available: <strong>{{competition['numberOfPlaces']}}</strong></p>
+        <p>Club: <strong>{{club['name']}}</strong></p>
+        <p>Points available: <strong>{{club['points']}}</strong></p>
+
+        <h3>Book Places</h3>
+        <form action="{{ url_for('purchasePlaces') }}" method="post">
+            <input type="hidden" name="club" value="{{club['name']}}">
+            <input type="hidden" name="competition" value="{{competition['name']}}">
+
+            <label for="places">How many places?</label>
+            <input type="number" 
+                   name="places" 
+                   id="places" 
+                   min="1" 
+                   max="{{club['points']}}" 
+                   required>
+
+            {% if club['points']|int > 0 %}
+                <button type="submit" class="btn">Book</button>
+            {% else %}
+                <button type="submit" class="btn disabled" disabled>No points left</button>
+            {% endif %}
+        </form>
+    </div>
 </body>
 </html>

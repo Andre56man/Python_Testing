@@ -3,16 +3,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GUDLFT Registration</title>
-    <link rel="stylesheet" href="cssstyleindex.css" />
- 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleindex.css') }}">
+    
+   
 </head>
 <body>
-    <h1>Welcome to the GUDLFT Registration Portal!</h1>
-    Please enter your secretary email to continue:
-    <form action="showSummary" method="post">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id=""/>
-        <button type="submit">Enter</button>
-    </form>
+    <div class="container">
+        <h1>Welcome to the GUDLFT Registration Portal!</h1>
+        <p class="lead">Please enter your secretary email to continue:</p>
+        <form action="showSummary" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required />
+            <div class="button-row">
+                <button type="submit">Enter</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

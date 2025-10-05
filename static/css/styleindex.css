@@ -1,0 +1,105 @@
+ :root {
+        --bg-color-1: #f6f9ff;
+        --bg-color-2: #e8f0ff;
+        --card-bg: #ffffff;
+        --accent: #2b7cff;
+        --muted: #6b7280;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2));
+        color: #111827;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 540px;
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+        padding: 2rem;
+        text-align: left;
+        border: 1px solid rgba(43,124,255,0.06);
+    }
+
+    h1 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+        color: #0f172a;
+    }
+
+    p.lead {
+        margin: 0 0 1.25rem 0;
+        color: var(--muted);
+    }
+
+    form {
+        display: grid;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    label {
+        font-size: 0.95rem;
+        color: #111827;
+        display: block;
+    }
+
+    input[type="email"] {
+        width: 100%;
+        padding: 0.65rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid rgba(15,23,42,0.08);
+        font-size: 0.95rem;
+        outline: none;
+        transition: box-shadow 0.15s ease, border-color 0.15s ease;
+        background: #fbfdff;
+    }
+
+    input[type="email"]:focus {
+        border-color: var(--accent);
+        box-shadow: 0 4px 18px rgba(43,124,255,0.12);
+    }
+
+    .button-row {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.25rem;
+    }
+
+    button[type="submit"] {
+        background: linear-gradient(90deg, var(--accent), #1e63e6);
+        color: #fff;
+        border: none;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+        box-shadow: 0 6px 18px rgba(43,124,255,0.18);
+    }
+
+    button[type="submit"]:hover {
+        transform: translateY(-2px);
+        opacity: 0.98;
+    }
+
+    @media (max-width: 420px) {
+        .container { padding: 1rem; border-radius: 10px; }
+        h1 { font-size: 1.25rem; }
+    }
+   

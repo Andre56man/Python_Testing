@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr; /* une seule colonne par défaut */
+    gap: 1rem; /* espacement entre les éléments */
+
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    margin: 5px 0;
+    color: #333;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52,152,219,0.5);
+}
+
+.btn {
+    background: #3498db;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s ease, background 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #2980b9, #3498db);
+    transform: translateY(-2px);
+}
+
+.btn.disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+@media (min-width: 600px) {
+    .container {
+        grid-template-columns: 1fr 1fr; /* deux colonnes sur écran large */
+        align-items: center;
+    }
+
+    label, input {
+        grid-column: span 2; /* occupe toute la largeur */
+    }
+
+    .btn {
+        grid-column: span 2; /* bouton centré sur toute la largeur */
+    }
+}
