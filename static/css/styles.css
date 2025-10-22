@@ -1,73 +1,93 @@
+/* Corps général */
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f6fa;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #f5f6fa);
     margin: 0;
     padding: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
+/* Conteneur principal */
 .container {
     display: grid;
-    grid-template-columns: 1fr; /* une seule colonne par défaut */
-    gap: 1.2rem; /* espacement entre les éléments */
-
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     max-width: 500px;
     width: 100%;
     margin: auto;
     background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Titres et paragraphes */
 h2 {
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-align: center;
+    font-size: 1.8rem;
 }
 
 p {
     margin: 5px 0;
-    color: #333;
+    color: #555;
     text-align: center;
+    font-size: 1rem;
 }
 
+/* Labels et inputs */
 label {
     font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #34495e;
 }
 
-input[type="number"] {
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 12px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="number"]:focus {
+input:focus {
     border-color: #3498db;
     outline: none;
-    box-shadow: 0 0 5px rgba(52,152,219,0.5);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
 }
 
+/* Boutons */
 .btn {
     background: #3498db;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
     transition: transform 0.2s ease, background 0.3s ease;
     text-align: center;
+    font-weight: bold;
 }
 
 .btn:hover {
     background: linear-gradient(90deg, #6cdf5a, #57de48);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .btn.disabled {
@@ -75,17 +95,39 @@ input[type="number"]:focus {
     cursor: not-allowed;
 }
 
+/* Messages d'erreur ou succès */
+.error-message {
+    color: #e74c3c;
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #2ecc71;
+    background: #eafaf1;
+    border: 1px solid #27ae60;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Responsive pour écrans larges */
 @media (min-width: 600px) {
     .container {
-        grid-template-columns: 1fr 1fr; /* deux colonnes sur écran large */
+        grid-template-columns: 1fr 1fr;
         align-items: center;
     }
 
     label, input {
-        grid-column: span 2; /* occupe toute la largeur */
+        grid-column: span 2;
     }
 
     .btn {
-        grid-column: span 2; /* bouton centré sur toute la largeur */
+        grid-column: span 2;
     }
 }

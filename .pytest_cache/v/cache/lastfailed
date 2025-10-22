@@ -1,0 +1,9 @@
+{
+  "tests/test_server.py::test_dashboard": true,
+  "tests/test_server.py::test_showSummary_valid": true,
+  "tests/test_server.py::test_book_valid": true,
+  "tests/test_server.py::test_purchasePlaces_success": true,
+  "tests/test_server.py::test_purchasePlaces_insufficient_points": true,
+  "tests/test_server.py::test_purchasePlaces_too_many": true,
+  "tests/test_server.py::test_purchasePlaces_past_competition": true
+}

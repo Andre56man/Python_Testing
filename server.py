@@ -53,8 +53,8 @@ def showSummary():
     club = next((c for c in clubs if c['email'] == email), None)  # recherche sécurisée
 
     if not club:
-        # On reste sur la page index et on affiche le message
-        return render_template('index.html', clubs=clubs, error_message="Email not found.")
+        return render_template('index.html', clubs=clubs, error_message="Email not found."), 400
+
 
     # Ajouter un flag pour indiquer si la compétition est passée
     for comp in competitions:
@@ -119,8 +119,7 @@ def logout():
     return redirect(url_for('dashboard'))
 
 
-# ------------------------
-# Lancement de l'application
-# ------------------------
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
+
